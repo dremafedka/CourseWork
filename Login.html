@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік успішності</title>
+    <link href="CSS/Login.css" rel="stylesheet" />
+</head>
+<body>
+<div class = "MainTitles">
+<h1 class = "oblik">Облік успішності</h1>
+<h2 class="choosing">Оберіть тип користувача:</h2>
+    <div class="buttons">
+<button class="button1" id = "btnTeacher">Вчитель</button>
+<button class="button2" id = "btnStudent">Студент</button>
+    </div>
+</div>
+
+<form class="studentInput" style = "display: none">
+    <input required placeholder="Введіть username студента" class="input" id="studentUsername" type="text"> <br>
+    <input required placeholder="Введіть пароль" class="input" id="studentPassword" type="password"> <br>
+    <input class="submit" id="studentSubmit"  type="submit" value = "Увійти">
+</form>
+
+<form class="teacherInput" style = "display: none">
+    <input required placeholder="Введіть username вчителя" class="input" id="teacherUsername" type="text"> <br>
+     <input required placeholder="Введіть пароль" class="input" id="teacherPassword" type="password"> <br>
+    <input class="submit" id="teacherSubmit" type="submit" value = "Увійти">
+</form>
+
+
+<script src="Login.js"></script>
+<script src="/projects/CourseWork/Classes/User.js"></script>
+<script src="/projects/CourseWork/Classes/Person.js"></script>
+<script src="/projects/CourseWork/Classes/Student.js"></script>
+<script src="/projects/CourseWork/Classes/Teacher.js"></script>
+<script src="/projects/CourseWork/Classes/Objects%20User.js"></script>
+</body>
+</html>

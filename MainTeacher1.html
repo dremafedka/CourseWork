@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік успішності</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jcta.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="/projects/CourseWork/Classes/User.js"></script>
+    <script src="/projects/CourseWork/Classes/Person.js"></script>
+    <script src="/projects/CourseWork/Classes/Student.js"></script>
+    <script src="/projects/CourseWork/Classes/Teacher.js"></script>
+    <script src="/projects/CourseWork/Classes/Mark.js"></script>
+    <script src="/projects/CourseWork/Classes/Objects%20User.js"></script>
+    <link href="CSS/MainTeacher1.css" rel="stylesheet" />
+    <script src="MainTeacher1.js"></script>
+
+    <style>
+        .mv20 {margin: 20px 0;}
+    </style>
+</head>
+<body>
+<h1 class="oblik">Сторінка вчителя</h1>
+
+<form class="choosing">
+    <div>Оберіть студента для роботи з оцінками:</div>
+<select class="select_student" required>
+    <option value="" hidden>Обрати</option>
+    <option value="Ілля Петренко">Ілля Петренко</option>
+    <option value="В`ячеслав Птичкін">В`ячеслав Птичкін</option>
+    <option value="Ілля Ліпунов">Ілля Ліпунов</option>
+    <option value="Аліса Гіль">Аліса Гіль</option>
+    <option value="Ярослав Главацький">Ярослав Главацький</option>
+    <option value="Яна Дзюба">Яна Дзюба</option>
+    <option value="Євген Мільковский">Євген Мільковский</option>
+    <option value="Юрій Каплан">Юрій Каплан</option>
+    <option value="Аліна Олєшева">Аліна Олєшева</option>
+    <option value="Діана Захарченко">Діана Захарченко</option>
+</select>
+<button id="student_submit" class="student_submit">Підтвердити</button>
+</form>
+<br>
+
+<div class = 'title'>Показати списки студентів по групам</div>
+<button id="all_students1" class="all_students1">Показати</button>
+<button id="all_students2" class="all_students2" style = "display: none">Приховати</button>
+<br>
+<br>
+<form class="studentsingroups" style = "display: none">
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h1>Студенти групи А-1</h1>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Студент</th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__a1" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='textbox' data-field='name'>{{name}}</td>
+                    </tr>
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h1>Студенти групи А-2</h1>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Студент</th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__a2" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='textbox' data-field='name'>{{name}}</td>
+                    </tr>
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h1>Студенти групи А-3</h1>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Студент</th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__a3" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='textbox' data-field='name'>{{name}}</td>
+                    </tr>
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</form>
+
+<br>
+
+<div class="title">Показати список юзерів з паролями</div>
+<button id="all_usernames1" class="all_usernames1">Показати</button>
+<button id="all_usernames2" class="all_usernames2" style = "display: none">Приховати</button>
+
+<form class="listusernames" style="display: none">
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h1>Список юзерів</h1>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Логін</th>
+                    <th>Пароль</th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__b" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='textbox' data-field='username'>{{username}}</td>
+                        <td class='edit' data-type='textbox' data-field='password'>{{password}}</td>
+                    </tr>
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</form>
+
+<script src="MainTeacher1.js"></script>
+
+</body>
+</html>

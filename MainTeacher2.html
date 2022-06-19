@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік успішності</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jcta.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="/projects/CourseWork/Classes/User.js"></script>
+    <script src="/projects/CourseWork/Classes/Person.js"></script>
+    <script src="/projects/CourseWork/Classes/Teacher.js"></script>
+    <script src="/projects/CourseWork/Classes/Student.js"></script>
+    <script src="/projects/CourseWork/Classes/Mark.js"></script>
+    <script src="/projects/CourseWork/Classes/Objects%20User.js"></script>
+    <script src="datasource.js"></script>
+    <link href="CSS/MainTeacher1.css" rel="stylesheet" />
+    <link href="CSS/MainTeacher2.css" rel="stylesheet" />
+
+    <style>
+        .mv20 {margin: 20px 0;}
+    </style>
+</head>
+<body>
+<script> Teacher.getDatasource() </script>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h3>Таблиця для редагування оцінок:</h3>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Предмет</th>
+                    <th>Оцінка</th>
+                    <th>Дата</th>
+                    <th style='width:150px'>Вид роботи</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__datasource" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='dropdown' data-field='subject_id' data-source='subject_types'>{{subject_id|select(subject_types)}}</td>
+                        <td class='edit' data-type='textbox' data-field='value'>{{value}}</td>
+                        <td class='edit' data-type='textbox' data-field='date'>{{date}}</td>
+                        <td class='edit' data-type='dropdown' data-field='mark_id' data-source='mark_types'>{{mark_id|select(mark_types)}}</td>
+                        <td><button type='button' class='btn btn-danger btn-flat btn-xs' data-bind="rem__click:remRow"  data-id='$index' title='Удалить запись'><i class='fa fa-fw fa-remove'></i></button></td>
+                    </tr>
+                </script>
+                </tbody>
+                <tfooter>
+                    <tr>
+                        <th></th>
+                        <th><div data---="dropdown__form.subject_id__required:true;datasource:subject_types;text:name;value:id;type:number;class:form-control input-sm;"></div></th>
+                        <th><div data---="textbox__form.value__required:true;placeholder:Оцінка;class:form-control input-sm;"></div></th>
+                        <th><div data---="textbox__form.date__required:true;placeholder:Дата;class:form-control input-sm;"></div></th>
+                        <th><div data---="dropdown__form.mark_id__required:true;datasource:mark_types;text:name;value:id;type:number;class:form-control input-sm;"></div></th>
+                        <th><button type='button' class='btn btn-primary btn-flat btn-xs' data-bind="rem__click:addRow"  data-id='$index' title='Добавить запись'><i class='fa fa-fw fa-plus'></i></button></th>
+                    </tr>
+                </tfooter>
+            </table>
+        </div>
+    </div>
+</div>
+
+<button class="save_marks">Зберегти</button>
+<script src="MainTeacher2.js"></script>
+
+</body>
+</html>

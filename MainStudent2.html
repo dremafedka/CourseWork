@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік успішності</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="CSS/ui.css" />
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jcta.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="/projects/CourseWork/Classes/User.js"></script>
+    <script src="/projects/CourseWork/Classes/Person.js"></script>
+    <script src="/projects/CourseWork/Classes/Student.js"></script>
+    <script src="/projects/CourseWork/Classes/Mark.js"></script>
+    <script src="/projects/CourseWork/Classes/Objects%20User.js"></script>
+    <script src="datasource.js"></script>
+    <script src="MainStudent2.js"></script>
+    <link href="CSS/MainTeacher1.css" rel="stylesheet" />
+    <style>
+        .mv20 {margin: 20px 0;}
+    </style>
+</head>
+<body>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 center-block' style='float:none'>
+            <h1>Таблиця з оцінками</h1>
+            <hr>
+            <table class='table table-bordered mv20'>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Предмет</th>
+                    <th>Оцінка</th>
+                    <th>Дата</th>
+                    <th style='width:150px'>Вид роботи</th>
+                </tr>
+                </thead>
+                <tbody data-jc="repeater__datasource" >
+                <script type="text/html">
+                    <tr data-index="$index">
+                        <td>{{index+1}}</td>
+                        <td class='edit' data-type='textbox' data-field='subject_name'>{{subject_name}}</td>
+                        <td class='edit' data-type='textbox' data-field='value'>{{value}}</td>
+                        <td class='edit' data-type='textbox' data-field='date'>{{date}}</td>
+                        <td class='edit' data-type='textbox' data-field='mark_name'>{{mark_name}}</td>
+                    </tr>
+                </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
